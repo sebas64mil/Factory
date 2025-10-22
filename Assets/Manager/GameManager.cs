@@ -5,8 +5,16 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static bool IsPaused = false;
+    public static event Action OnPauseKeyPressed;
 
     public static GameManager instance;
+
+    private void Update()
+    {
+        // Detecta tecla ESC y lanza el evento
+        if (Input.GetKeyDown(KeyCode.Escape))
+            OnPauseKeyPressed?.Invoke();
+    }
 
     public static void CursorVisible(bool state)
     {
