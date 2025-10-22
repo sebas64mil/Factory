@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     public static void RestartScene()
     {
         Time.timeScale = 1;
+        PlayerInventory.ClearInventory();
         string currentScene = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentScene);
     }

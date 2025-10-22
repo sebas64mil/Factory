@@ -31,5 +31,12 @@ public static class PlayerInventory
         return minerals.ContainsKey(name) ? minerals[name] : 0;
     }
 
+    public static void ClearInventory()
+    {
+        minerals.Clear();
+        OnMineralChanged = null; 
+    }
+
+
     public static IReadOnlyDictionary<string, int> GetAllMinerals() => minerals;
 }
